@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator</title>
+	<style type="text/css">
+		body
+		{
+			background-color: pink;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		.container
+		{
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		input
+		{
+			border-radius: 15px;
+			font-size: 34px;
+			border: 2px solid #b31c62;
+		}
+
+		table
+		{
+			margin: auto;
+			
+			border-radius: 15px;
+			
+
+		}
+
+		button
+		{
+			font-size: 32px;
+			color: #4a5250;
+			background-color: #17eae1;
+   			border-radius: 15px;
+			width: 102px;
+			height: 45px;
+			border: 2px solid #25659c;
+		}
+
+		.calc
+		{
+			display: inline-block;
+			background-color: red;
+			padding-bottom: 20px;
+			border-radius: 35px;
+			padding-top: -10px;
+		}
+
+		
+
+	</style>
+</head>
+<body title="created by raja">
+
+	<div class="container">
+		<div class="calc">
+		
+			<h1>Calculator</h1>
+			<input type="text" name="screen" id="screen">
+		<table>
+			<tr>
+				<td> <button>(</button> </td>
+				<td> <button>)</button> </td>
+				<td> <button>C</button> </td>
+				<td> <button>%</button> </td>
+			</tr>
+
+			<tr>
+				<td> <button>7</button> </td>
+				<td> <button>8</button> </td>
+				<td> <button>9</button> </td>
+				<td> <button>X</button> </td>
+			</tr>
+
+			<tr>
+				<td> <button>4</button> </td>
+				<td> <button>5</button> </td>
+				<td> <button>6</button> </td>
+				<td> <button>-</button> </td>
+			</tr>
+
+			<tr>
+				<td> <button>1</button> </td>
+				<td> <button>2</button> </td>
+				<td> <button>3</button> </td>
+				<td> <button>+</button> </td>
+			</tr>
+
+			<tr>
+				<td> <button>0</button> </td>
+				<td> <button>.</button> </td>
+				<td> <button>/</button> </td>
+				<td> <button>=</button> </td>
+			</tr>
+		</table>
+		</div>
+	</div>
+
+
+
+
+
+
+
+	<script type="text/javascript">
+		// alert("do you want to use this calc than click ok");
+
+		let screen = document.getElementById('screen');
+		buttons = document.querySelectorAll('button');
+		let screenValue = "";
+		// console.log(buttons);
+		for(item of buttons)
+		{
+			item.addEventListener('click',(e)=>{
+				buttonText = e.target.innerText;
+				console.log(buttonText);
+
+				if(buttonText=='X')
+				{
+					buttonText = "*";
+					screenValue += buttonText;
+					screen.value =screenValue; 
+					
+				}
+				else if(buttonText == 'C')
+				{
+					screenValue = "";
+					screen.value =screenValue; 
+				}
+				else if(buttonText == '=')
+				{
+					screen.value = eval(screenValue);
+				}
+				else
+				{
+					screenValue += buttonText;
+					screen.value =screenValue; 
+				}
+			})
+		}
+	</script>
+</body>
+</html>
